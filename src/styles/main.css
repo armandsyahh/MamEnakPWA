@@ -1,0 +1,324 @@
+img {
+  display: block;
+}
+
+h2, h3, p{
+  color: #eeeeee;
+}
+
+a{
+  display: inline-block;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+main {
+  flex: 1;
+  padding-bottom: 60px;
+}
+
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #151515;
+  display: flex;
+  flex-direction: column;
+}
+
+header, footer {
+  width: 100%;
+}
+
+.skip-to-content {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  background: #a91d39;
+  color: #eeeeee;
+  padding: 8px;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #A91D3A; 
+  color: white;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 0.5rem;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu li {
+  line-height: 3.5;
+  margin-left: 1rem;
+}
+
+.navbar-menu a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+}
+
+.hamburger-menu {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Drawer Styles */
+.drawer {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  padding: 2rem;
+}
+
+.drawer.open {
+  display: block;
+}
+
+.drawer-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.drawer-menu li {
+  margin-bottom: 1rem;
+}
+
+.drawer-menu a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* Hero Styles */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  background-color: #a91d39ab;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+/* Restaurant List Styles */
+.restaurant-list {
+  padding: 2rem;
+}
+
+.restaurant {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.restaurant-card {
+  width: calc(33.333% - 1rem);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #C73659;
+}
+
+.restaurant-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.restaurant-card h3 {
+  margin: 0.5rem;
+}
+
+.restaurant-card p {
+  margin: 0.5rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: block;
+  }
+
+  .restaurant-card {
+    width: calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .restaurant-card {
+    width: 100%;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #A91D3A; 
+  color: white;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+button, a, input, textarea {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 10px;
+  margin: 5px;
+}
+
+.navbar-menu li {
+  margin-left: 1rem;
+}
+
+
+/* Styles for the Add Review Form */
+#add-review-form {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #454545;
+  margin: 0 auto;
+  margin-left: 0px;
+  max-width: 800px;
+}
+
+#add-review-form input[type="text"],
+#add-review-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box; 
+  background-color: white;
+}
+
+#add-review-form button {
+  background-color: #1d63a9;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#add-review-form button:hover {
+  background-color: #267fd9;
+}
+
+.review {
+  margin-top: 15px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.review p {
+  margin: 5px 0;
+}
+
+.review strong {
+  font-size: 18px;
+}
+
+/* Favorite Restaurants Styles */
+#favorite-list {
+  padding: 2rem;
+}
+
+#favorite-restaurants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.favorite-card {
+  width: calc(33.333% - 1rem);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #3B7C9C;
+}
+
+.favorite-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.favorite-card h3 {
+  margin: 0.5rem;
+}
+
+.favorite-card p {
+  margin: 0.5rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  #favorite-restaurants {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .favorite-card {
+    width: 100%;
+  }
+}
+

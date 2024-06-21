@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MamEnakPWA</title>
+  <!-- <link rel="stylesheet" href="styles/main.css"> -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">Skip to Content</a>
+  
+  <header>
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <img src="images/logo.png" alt="MamEnak Logo" class="brand-logo">
+        <span class="app-name">MamEnak</span>
+      </div>
+      <ul class="navbar-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="#/favorite">Favorite</a></li>
+        <li><a href="https://www.linkedin.com/in/armandsyahyudhiana/" target="_blank">About Us</a></li>
+      </ul>
+      <button class="hamburger-menu" aria-label="Open navigation menu">
+        &#9776;
+      </button>
+    </nav>
+    <div class="drawer">
+      <ul class="drawer-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="#/favorite">Favorite</a></li>
+        <li><a href="https://www.linkedin.com/in/armandsyahyudhiana/" target="_blank">About Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" role="banner">
+      <img src="images/heros/hero-image_1.jpg" alt="Delicious Food" class="hero-image">
+      <div class="hero-text">
+        <h1>Welcome to MamEnak</h1>
+        <p>Discover the best restaurants around you</p>
+      </div>
+    </section>
+
+    <section class="restaurant-list">
+      <h2>Our Restaurants</h2>
+      <div class="restaurant" id="restaurant-list">
+        <!-- Restaurants will be injected here via JavaScript -->
+      </div>
+    </section>
+
+    <section id="favorite-list" style="display: none;">
+      <h2>Favorite Restaurants</h2>
+      <div id="favorite-restaurants">
+        <!-- Favorite restaurants will be injected here via JavaScript -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Copyright © 2024 - MamEnak</p>
+  </footer>
+
+  <!-- <script src="scripts/index.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,1 @@
+const path=require("path"),WorkboxPlugin=require("workbox-webpack-plugin");module.exports={entry:"./src/scripts/index.js",output:{filename:"bundle.js",path:path.resolve(__dirname,"dist")},module:{rules:[{test:/\.css$/i,use:["style-loader","css-loader"]}]},plugins:[new WorkboxPlugin.GenerateSW({clientsClaim:!0,skipWaiting:!0})]};

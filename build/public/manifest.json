@@ -1,0 +1,21 @@
+{
+    "name": "Mamenak PWA",
+    "short_name": "Mamenak",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#3E4EB8",
+    "icons": [
+      {
+        "src": "/src/data/logo.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/src/data/logo.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ]
+  }
+  
