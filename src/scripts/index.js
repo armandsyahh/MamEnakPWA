@@ -3,7 +3,7 @@ import '../styles/main.css';
 import RestaurantApi from './data/RestaurantApi';
 import FavoriteRestaurantIdb from './data/idb';
 import swRegister from './utils/sw-register';
-import parseUrl from './routes/routes'
+import { parseUrl, routes } from './routes/routes';
 
 console.log('Hello Coders! :)');
 
@@ -12,13 +12,20 @@ function getImageUrl(pictureId, resolution) {
     return `https://restaurant-api.dicoding.dev/images/${resolution}/${pictureId}`;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const parsedUrl = parseUrl();
-    router(parsedUrl);
-    swRegister();
-  });
+// Router function
+function router() {
+    const { resource, id } = parseUrl();
+    const url = (resource ? `/${resource}` : '/') + (id ? `/:id` : '');
+    console.log('Navigating to:', url);  // Debugging
+    const route = routes[url] || routes['/'];
+    route(id);
+}
 
-document.addEventListener('DOMContentLoaded', async () => {
+
+document.addEventListener('DOMContentLoaded', () => {
+    router();
+    swRegister();
+
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const drawer = document.querySelector('.drawer');
 
@@ -36,23 +43,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-   
-
-    // Router
-    function router() {
-        const hash = window.location.hash;
-        console.log('Hash changed:', hash);
-        if (hash.startsWith('#/detail/')) {
-            const id = hash.split('/')[2];
-            showRestaurantDetail(id);
-        } else if (hash === '#/favorite') {
-            console.log('Showing favorite list');
-            showFavoriteList();
-        } else {
-            showRestaurantList(); // Default to showing the main content
-        }
-    }
-
     // Event listener for hash change
     window.addEventListener('hashchange', () => {
         router();
@@ -65,13 +55,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Load the initial restaurant list
     showRestaurantList();
-
-
-  
 });
 
- // Fungsi untuk menampilkan daftar restoran
- export async function showRestaurantList() {
+// Fungsi untuk menampilkan daftar restoran
+export async function showRestaurantList() {
     try {
         const restaurants = await RestaurantApi.listRestaurants();
         const restaurantList = document.getElementById('restaurant-list');

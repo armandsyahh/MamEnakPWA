@@ -1,5 +1,5 @@
-import {showRestaurantList, showFavoriteList, showRestaurantDetail }from '../../scripts/index';
- 
+import { showRestaurantList, showFavoriteList, showRestaurantDetail } from '../index';
+
 const routes = {
   '/': showRestaurantList,
   '/favorite': showFavoriteList,
@@ -15,5 +15,5 @@ const parseUrl = () => {
     verb: request[3] || null,
   };
 };
- 
-export default {routes, parseUrl};
+
+export { routes, parseUrl };
