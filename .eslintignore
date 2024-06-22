@@ -1,0 +1,11 @@
+# node_modules/
+# build/
+# dist/
+
+# src.js
+# # service-worker.js
+# webpack.common.js
+# workbox-config.js
+# workbox-*.js
+# webpack.dev.js
+# webpack.prod.js

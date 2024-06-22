@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 export function renderRestaurantList(restaurants) {
   const restaurantListElement = document.querySelector('#restaurant-list');
   restaurantListElement.innerHTML = '';

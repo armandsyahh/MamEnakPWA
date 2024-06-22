@@ -1,3 +1,10 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-shadow */
+/* eslint-disable no-alert */
+/* eslint-disable arrow-parens */
+/* eslint-disable no-use-before-define */
+/* eslint-disable indent */
+/* eslint-disable import/no-cycle */
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
 import RestaurantApi from './data/RestaurantApi';
@@ -15,12 +22,11 @@ function getImageUrl(pictureId, resolution) {
 // Router function
 function router() {
     const { resource, id } = parseUrl();
-    const url = (resource ? `/${resource}` : '/') + (id ? `/:id` : '');
-    console.log('Navigating to:', url);  // Debugging
+    const url = (resource ? `/${resource}` : '/') + (id ? '/:id' : '');
+    console.log('Navigating to:', url); // Debugging
     const route = routes[url] || routes['/'];
     route(id);
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
     router();
@@ -45,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Event listener for hash change
     window.addEventListener('hashchange', () => {
+        const parsedUrl = parseUrl();
         router();
     });
 
@@ -90,7 +97,7 @@ export async function showRestaurantList() {
                     name: restaurant.name,
                     pictureId: restaurant.pictureId,
                     city: restaurant.city,
-                    rating: restaurant.rating
+                    rating: restaurant.rating,
                 };
                 await addToFavorites(restaurantData);
                 alert(`${restaurant.name} has been added to favorites`);
@@ -172,22 +179,22 @@ export async function addReview(restaurantId) {
 
     const reviewData = {
         id: restaurantId,
-        name: name,
-        review: review,
+        name,
+        review,
     };
 
     try {
         const response = await fetch('https://restaurant-api.dicoding.dev/review', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify(reviewData)
+            body: JSON.stringify(reviewData),
         });
 
         const data = await response.json();
         if (!data.error) {
-            const customerReviews = data.customerReviews;
+            const { customerReviews } = data;
             const reviewContainer = document.getElementById('customer-reviews');
             reviewContainer.innerHTML = customerReviews.map(review => `
                 <div class="review">

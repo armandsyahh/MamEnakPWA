@@ -3,7 +3,7 @@ const swRegister = async () => {
     console.log('Browser tidak mendukung Service Worker');
     return;
   }
- 
+
   try {
     await navigator.serviceWorker.register('./sw.bundle.js');
     console.log('Service worker registered');

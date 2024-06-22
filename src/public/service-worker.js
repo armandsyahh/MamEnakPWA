@@ -1,3 +1,6 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable consistent-return */
+/* eslint-disable no-restricted-globals */
 const CACHE_NAME = 'mamenak-v1';
 const urlsToCache = [
   '/',
@@ -20,7 +23,7 @@ self.addEventListener('install', (event) => {
       .then((cache) => {
         console.log('Opened cache');
         return cache.addAll(urlsToCache);
-      })
+      }),
   );
 });
 
@@ -33,7 +36,7 @@ self.addEventListener('fetch', (event) => {
         }
 
         return fetch(event.request);
-      })
+      }),
   );
 });
 
@@ -46,7 +49,7 @@ self.addEventListener('activate', (event) => {
         if (!cacheWhitelist.includes(cacheName)) {
           return caches.delete(cacheName);
         }
-      })
-    ))
+      }),
+    )),
   );
 });

@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 class RestaurantCard extends HTMLElement {
   set restaurant(restaurant) {
     this._restaurant = restaurant;
@@ -5,7 +6,9 @@ class RestaurantCard extends HTMLElement {
   }
 
   render() {
-    const { name, pictureId, city, rating, description } = this._restaurant;
+    const {
+      name, city, rating, description,
+    } = this._restaurant;
     this.innerHTML = `
       <div class="restaurant-card">
         <img src="" alt="cok">

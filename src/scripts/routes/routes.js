@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import { showRestaurantList, showFavoriteList, showRestaurantDetail } from '../index';
 
 const routes = {

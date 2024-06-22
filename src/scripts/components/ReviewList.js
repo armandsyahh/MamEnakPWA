@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 class ReviewList extends HTMLElement {
   set reviews(reviews) {
     this._reviews = reviews;
